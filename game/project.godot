@@ -10,12 +10,48 @@ config_version=5
 
 _global_script_classes=[{
 "base": "Resource",
+"class": &"AttackComponent",
+"language": &"GDScript",
+"path": "res://components/attacks/component_attack.gd"
+}, {
+"base": "Node",
+"class": &"Battler",
+"language": &"GDScript",
+"path": "res://battler/battler.gd"
+}, {
+"base": "Resource",
 "class": &"Component",
 "language": &"GDScript",
 "path": "res://components/component.gd"
+}, {
+"base": "Resource",
+"class": &"CoreComponent",
+"language": &"GDScript",
+"path": "res://components/cores/component_cores.gd"
+}, {
+"base": "Resource",
+"class": &"DeffenseComponent",
+"language": &"GDScript",
+"path": "res://components/deffenses/component_deffense.gd"
+}, {
+"base": "Resource",
+"class": &"MovementComponent",
+"language": &"GDScript",
+"path": "res://components/movements/component_movement.gd"
+}, {
+"base": "Resource",
+"class": &"SpecialComponent",
+"language": &"GDScript",
+"path": "res://components/specials/component_special.gd"
 }]
 _global_script_class_icons={
-"Component": ""
+"AttackComponent": "",
+"Battler": "",
+"Component": "",
+"CoreComponent": "",
+"DeffenseComponent": "",
+"MovementComponent": "",
+"SpecialComponent": ""
 }
 
 [application]
