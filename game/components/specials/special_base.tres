@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://xh5exrspr7pn"]
+
+[ext_resource type="Script" path="res://components/specials/component_special.gd" id="1_pjcet"]
+
+[resource]
+script = ExtResource("1_pjcet")
+special_damage = 15
+cooldown = 4
+effect = null
+attack_type = 0
+rarity = 0

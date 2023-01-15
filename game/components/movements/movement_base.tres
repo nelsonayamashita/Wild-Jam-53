@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bsvrl854kjrwy"]
+
+[ext_resource type="Script" path="res://components/movements/component_movement.gd" id="1_bem64"]
+
+[resource]
+script = ExtResource("1_bem64")
+speed = 10
+effect = null
+rarity = 0
