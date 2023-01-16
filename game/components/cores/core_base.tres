@@ -1,6 +1,6 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dk68xpv3nmpv5"]
+[gd_resource type="Resource" load_steps=3 format=3]
 
-[ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon.svg" id="1_1h8d7"]
+[ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon_96.svg" id="1_1h8d7"]
 [ext_resource type="Script" path="res://components/cores/component_cores.gd" id="1_t2vmh"]
 
 [resource]

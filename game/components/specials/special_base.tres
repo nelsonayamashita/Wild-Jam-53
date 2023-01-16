@@ -1,11 +1,12 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://xh5exrspr7pn"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://xh5exrspr7pn"]
 
+[ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon_96.svg" id="1_c58cd"]
 [ext_resource type="Script" path="res://components/specials/component_special.gd" id="1_pjcet"]
 
 [resource]
 script = ExtResource("1_pjcet")
 special_damage = 15
-cooldown = 4
+image = ExtResource("1_c58cd")
 effect = null
-attack_type = 0
+attack_type = 2
 rarity = 0

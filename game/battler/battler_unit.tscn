@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://biw5cgqmmg3xw"]
+
+[ext_resource type="Script" path="res://battler/battler_unit.gd" id="1_uea2t"]
+[ext_resource type="PackedScene" uid="uid://b2v807j0onlh4" path="res://unit/unit.tscn" id="2_dilpf"]
+
+[node name="BattlerUnit" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+script = ExtResource("1_uea2t")
+
+[node name="InteractButton" type="Button" parent="."]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="InteractButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Unit" parent="InteractButton/CenterContainer" instance=ExtResource("2_dilpf")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ActionsMenu" type="VBoxContainer" parent="InteractButton"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -49.0
+offset_bottom = 704.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="StoreButton" type="Button" parent="InteractButton/ActionsMenu"]
+layout_mode = 2
+text = "Store"
+
+[node name="SellButton" type="Button" parent="InteractButton/ActionsMenu"]
+layout_mode = 2
+text = "Sell
+"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered_border"]
+[connection signal="pressed" from="InteractButton" to="." method="_on_interact_button_pressed"]
+[connection signal="pressed" from="InteractButton/ActionsMenu/StoreButton" to="." method="_on_store_button_pressed"]
+[connection signal="pressed" from="InteractButton/ActionsMenu/SellButton" to="." method="_on_sell_button_pressed"]

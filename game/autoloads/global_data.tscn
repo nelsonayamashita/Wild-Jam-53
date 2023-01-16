@@ -1,0 +1,16 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4ibjrr16wxbn"]
+
+[ext_resource type="Script" path="res://autoloads/global_data.gd" id="1_4wwjl"]
+[ext_resource type="Resource" path="res://components/attacks/attack_base.tres" id="2_whf1h"]
+[ext_resource type="Resource" uid="uid://bnpa1vvqyivhw" path="res://components/defence/defence_base.tres" id="3_7qwuq"]
+[ext_resource type="Resource" uid="uid://bsvrl854kjrwy" path="res://components/movements/movement_base.tres" id="4_x4hdw"]
+[ext_resource type="Resource" uid="uid://xh5exrspr7pn" path="res://components/specials/special_base.tres" id="5_ir0vl"]
+[ext_resource type="Resource" path="res://components/cores/core_base.tres" id="6_1nigc"]
+
+[node name="GlobalData" type="Node"]
+script = ExtResource("1_4wwjl")
+attack_components = [ExtResource("2_whf1h")]
+defence_components = [ExtResource("3_7qwuq")]
+movement_components = [ExtResource("4_x4hdw")]
+special_components = [ExtResource("5_ir0vl")]
+core_components = [ExtResource("6_1nigc")]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cryogmcqdk5ue"]
+
+[ext_resource type="PackedScene" uid="uid://biw5cgqmmg3xw" path="res://battler/battler_unit.tscn" id="1_jsa5u"]
+
+[node name="PlayerAssembler" type="GridContainer"]
+anchors_preset = -1
+anchor_left = 0.31
+anchor_top = 0.025
+anchor_right = 0.689
+anchor_bottom = 0.7
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="Fill" type="Control" parent="."]
+layout_mode = 2
+
+[node name="DefenceBattler" parent="." instance=ExtResource("1_jsa5u")]
+layout_mode = 2
+
+[node name="Fill2" type="Control" parent="."]
+layout_mode = 2
+
+[node name="SpecialBattler" parent="." instance=ExtResource("1_jsa5u")]
+layout_mode = 2
+
+[node name="CoreBattler" parent="." instance=ExtResource("1_jsa5u")]
+layout_mode = 2
+
+[node name="AttackBattler" parent="." instance=ExtResource("1_jsa5u")]
+layout_mode = 2
+
+[node name="Fill3" type="Control" parent="."]
+layout_mode = 2
+
+[node name="MovementBattler" parent="." instance=ExtResource("1_jsa5u")]
+layout_mode = 2
+
+[node name="Fill4" type="Control" parent="."]
+layout_mode = 2

@@ -1,0 +1,140 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuboojl4mgje1"]
+
+[ext_resource type="Script" path="res://ui/shop_screen.gd" id="1_f2q0l"]
+[ext_resource type="PackedScene" uid="uid://txk81s0fk43w" path="res://ui/interactable_unit.tscn" id="2_ufuin"]
+[ext_resource type="PackedScene" uid="uid://cryogmcqdk5ue" path="res://ui/player_assembler.tscn" id="3_27308"]
+[ext_resource type="PackedScene" uid="uid://dl1w1qb3deay1" path="res://ui/stored_unit.tscn" id="4_43v0l"]
+
+[node name="ShopScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f2q0l")
+
+[node name="Shop" type="Control" parent="."]
+layout_mode = 1
+anchor_top = 0.66
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Shop"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="Shop/MarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Shop/MarginContainer"]
+layout_mode = 2
+
+[node name="Item0" type="MarginContainer" parent="Shop/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 8
+
+[node name="RerolButton" type="Button" parent="Shop/MarginContainer/HBoxContainer/Item0"]
+layout_mode = 2
+
+[node name="Item1" type="MarginContainer" parent="Shop/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="AttackItem" parent="Shop/MarginContainer/HBoxContainer/Item1" instance=ExtResource("2_ufuin")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Item2" type="MarginContainer" parent="Shop/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="DefenceItem" parent="Shop/MarginContainer/HBoxContainer/Item2" instance=ExtResource("2_ufuin")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Item3" type="MarginContainer" parent="Shop/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="SpecialItem" parent="Shop/MarginContainer/HBoxContainer/Item3" instance=ExtResource("2_ufuin")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Item4" type="MarginContainer" parent="Shop/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="MovementItem" parent="Shop/MarginContainer/HBoxContainer/Item4" instance=ExtResource("2_ufuin")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Item5" type="MarginContainer" parent="Shop/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="CoreItem" parent="Shop/MarginContainer/HBoxContainer/Item5" instance=ExtResource("2_ufuin")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PlayerAssembler" parent="." instance=ExtResource("3_27308")]
+layout_mode = 1
+
+[node name="UnitStorage" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087
+anchor_top = 0.133
+anchor_right = 0.212
+anchor_bottom = 0.711
+offset_top = 0.239998
+offset_bottom = 0.0799866
+
+[node name="StoredUnit1" parent="UnitStorage" instance=ExtResource("4_43v0l")]
+layout_mode = 2
+
+[node name="StoredUnit2" parent="UnitStorage" instance=ExtResource("4_43v0l")]
+layout_mode = 2
+
+[node name="StoredUnit3" parent="UnitStorage" instance=ExtResource("4_43v0l")]
+layout_mode = 2
+
+[connection signal="pressed" from="Shop/MarginContainer/HBoxContainer/Item0/RerolButton" to="." method="_on_rerol_button_pressed"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item1/AttackItem" to="." method="_on_attack_item_unit_interacted"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item2/DefenceItem" to="." method="_on_defence_item_unit_interacted"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item3/SpecialItem" to="." method="_on_special_item_unit_interacted"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item4/MovementItem" to="." method="_on_movement_item_unit_interacted"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item5/CoreItem" to="." method="_on_core_item_unit_interacted"]
+[connection signal="unit_stored" from="PlayerAssembler/DefenceBattler" to="." method="_on_defence_battler_unit_stored"]
+[connection signal="unit_stored" from="PlayerAssembler/SpecialBattler" to="." method="_on_special_battler_unit_stored"]
+[connection signal="unit_stored" from="PlayerAssembler/CoreBattler" to="." method="_on_core_battler_unit_stored"]
+[connection signal="unit_stored" from="PlayerAssembler/AttackBattler" to="." method="_on_attack_battler_unit_stored"]
+[connection signal="unit_stored" from="PlayerAssembler/MovementBattler" to="." method="_on_movement_battler_unit_stored"]
+[connection signal="unit_equipped" from="UnitStorage/StoredUnit1" to="." method="_on_stored_unit_1_equipped"]
+[connection signal="unit_equipped" from="UnitStorage/StoredUnit2" to="." method="_on_stored_unit_2_equipped"]
+[connection signal="unit_equipped" from="UnitStorage/StoredUnit3" to="." method="_on_stored_unit_3_equipped"]
+
+[editable path="PlayerAssembler"]

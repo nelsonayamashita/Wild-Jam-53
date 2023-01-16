@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://txk81s0fk43w"]
+
+[ext_resource type="PackedScene" uid="uid://b2v807j0onlh4" path="res://unit/unit.tscn" id="1_57m6a"]
+[ext_resource type="Script" path="res://ui/interactable_unit.gd" id="1_rje67"]
+
+[node name="InteractableUnit" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_rje67")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Unit" parent="CenterContainer" instance=ExtResource("1_57m6a")]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
