@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://deqvgv4ausak"]
+
+[ext_resource type="FontFile" uid="uid://b5ujgaflmadr1" path="res://assets/fonts/Teko-Regular.ttf" id="1_m7hwb"]
+
+[resource]
+default_font = ExtResource("1_m7hwb")
+default_font_size = 42
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.501961)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 20
+Button/font_sizes/font_size = 42
+Button/fonts/font = ExtResource("1_m7hwb")
+Label/colors/default = Color(0, 0, 0, 1)
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/constants/outline_size = 20
+Label/font_sizes/font_size = 42
+Label/fonts/font = ExtResource("1_m7hwb")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://bq6qgus4q610d"]
+
+[ext_resource type="Texture2D" uid="uid://bxrsmhy1px525" path="res://assets/attack/slice_atk.svg" id="1_b165g"]
+[ext_resource type="Script" path="res://components/attacks/component_attack.gd" id="2_wipdo"]
+
+[resource]
+script = ExtResource("2_wipdo")
+attack = 14
+id = 2
+level = 2
+image = ExtResource("1_b165g")
+effect = null
+attack_type = 0

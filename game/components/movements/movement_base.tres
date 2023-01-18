@@ -5,7 +5,8 @@
 
 [resource]
 script = ExtResource("1_bem64")
-speed = 10
+speed = 8
+id = -1
+level = 1
 image = ExtResource("1_ayr2l")
 effect = null
-rarity = 0

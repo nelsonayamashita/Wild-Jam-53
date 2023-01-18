@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://efxxnanx8vhg"]
+
+[ext_resource type="Texture2D" uid="uid://mvb0tdkli162" path="res://assets/movement/rocket_movement.svg" id="1_ie5e3"]
+[ext_resource type="Script" path="res://components/movements/component_movement.gd" id="2_uuan3"]
+
+[resource]
+script = ExtResource("2_uuan3")
+speed = 13
+id = 1
+level = 2
+image = ExtResource("1_ie5e3")
+effect = null

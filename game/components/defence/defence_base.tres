@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_v8q1v")
-defence = 10
+defence = 8
+id = -1
+level = 1
 image = ExtResource("1_hsl4o")
 effect = null
-defence_type = 1
-rarity = 0
+defence_type = 3

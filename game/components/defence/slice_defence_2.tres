@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dtv22km22h0qv"]
+
+[ext_resource type="Texture2D" uid="uid://bgfa4etxvnoe7" path="res://assets/heads/slice_head.svg" id="1_3n12d"]
+[ext_resource type="Script" path="res://components/defence/component_defence.gd" id="2_7814t"]
+
+[resource]
+script = ExtResource("2_7814t")
+defence = 15
+id = 2
+level = 2
+image = ExtResource("1_3n12d")
+effect = null
+defence_type = 0

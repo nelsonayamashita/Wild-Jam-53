@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://46ynbycarrfb"]
+
+[ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon_96.svg" id="1_4dm1r"]
+[ext_resource type="Script" path="res://components/specials/component_special.gd" id="2_mnw87"]
+
+[resource]
+script = ExtResource("2_mnw87")
+special_damage = 19
+id = 2
+level = 2
+image = ExtResource("1_4dm1r")
+effect = null
+attack_type = 0

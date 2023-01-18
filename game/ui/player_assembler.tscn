@@ -1,40 +1,145 @@
-[gd_scene load_steps=2 format=3 uid="uid://cryogmcqdk5ue"]
+[gd_scene load_steps=8 format=3 uid="uid://da6on2w2s3yia"]
 
 [ext_resource type="PackedScene" uid="uid://biw5cgqmmg3xw" path="res://battler/battler_unit.tscn" id="1_jsa5u"]
+[ext_resource type="Script" path="res://ui/player_assembler.gd" id="1_r3l7j"]
+[ext_resource type="Texture2D" uid="uid://dfb5xjhshxl3h" path="res://assets/icons/def_128.svg" id="2_aey8b"]
+[ext_resource type="Texture2D" uid="uid://2thxsuoqxc5w" path="res://assets/icons/sp-atk_128.svg" id="4_sp47k"]
+[ext_resource type="Texture2D" uid="uid://bmp5ejwqidr2" path="res://assets/icons/nuc_128.svg" id="5_xldhn"]
+[ext_resource type="Texture2D" uid="uid://g8v6vdiq1b14" path="res://assets/icons/atk_96.svg" id="6_5fenb"]
+[ext_resource type="Texture2D" uid="uid://bd43wvpgtpagv" path="res://assets/icons/spd_128.svg" id="7_oeall"]
 
-[node name="PlayerAssembler" type="GridContainer"]
-anchors_preset = -1
+[node name="PlayerAssembler" type="Control"]
+layout_mode = 3
 anchor_left = 0.31
 anchor_top = 0.025
 anchor_right = 0.689
 anchor_bottom = 0.7
+script = ExtResource("1_r3l7j")
+
+[node name="Frame" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
-[node name="Fill" type="Control" parent="."]
+[node name="Fill" type="Control" parent="Frame"]
 layout_mode = 2
 
-[node name="DefenceBattler" parent="." instance=ExtResource("1_jsa5u")]
+[node name="Head" type="Control" parent="Frame"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Frame/Head"]
+modulate = Color(1, 1, 1, 0.243137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_aey8b")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DefenceBattler" parent="Frame/Head" instance=ExtResource("1_jsa5u")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Fill2" type="Control" parent="Frame"]
 layout_mode = 2
 
-[node name="Fill2" type="Control" parent="."]
+[node name="Special" type="Control" parent="Frame"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Frame/Special"]
+modulate = Color(1, 1, 1, 0.243137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_sp47k")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="SpecialBattler" parent="Frame/Special" instance=ExtResource("1_jsa5u")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Core" type="Control" parent="Frame"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Frame/Core"]
+modulate = Color(1, 1, 1, 0.243137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_xldhn")
+stretch_mode = 5
+
+[node name="CoreBattler" parent="Frame/Core" instance=ExtResource("1_jsa5u")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Arm" type="Control" parent="Frame"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Frame/Arm"]
+modulate = Color(1, 1, 1, 0.243137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_5fenb")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AttackBattler" parent="Frame/Arm" instance=ExtResource("1_jsa5u")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Fill3" type="Control" parent="Frame"]
 layout_mode = 2
 
-[node name="SpecialBattler" parent="." instance=ExtResource("1_jsa5u")]
+[node name="Leg" type="Control" parent="Frame"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Frame/Leg"]
+modulate = Color(1, 1, 1, 0.243137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_oeall")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MovementBattler" parent="Frame/Leg" instance=ExtResource("1_jsa5u")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Fill4" type="Control" parent="Frame"]
 layout_mode = 2
 
-[node name="CoreBattler" parent="." instance=ExtResource("1_jsa5u")]
-layout_mode = 2
-
-[node name="AttackBattler" parent="." instance=ExtResource("1_jsa5u")]
-layout_mode = 2
-
-[node name="Fill3" type="Control" parent="."]
-layout_mode = 2
-
-[node name="MovementBattler" parent="." instance=ExtResource("1_jsa5u")]
-layout_mode = 2
-
-[node name="Fill4" type="Control" parent="."]
+[node name="Control" type="Control" parent="Frame"]
 layout_mode = 2

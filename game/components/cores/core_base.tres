@@ -1,11 +1,12 @@
-[gd_resource type="Resource" load_steps=3 format=3]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://odyjbs4q2moi"]
 
 [ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon_96.svg" id="1_1h8d7"]
 [ext_resource type="Script" path="res://components/cores/component_cores.gd" id="1_t2vmh"]
 
 [resource]
 script = ExtResource("1_t2vmh")
-temperature_limit = 12
+temperature_limit = 20
+id = -1
+level = 1
 image = ExtResource("1_1h8d7")
 effect = null
-rarity = 0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://txk81s0fk43w"]
+[gd_scene load_steps=4 format=3 uid="uid://txk81s0fk43w"]
 
-[ext_resource type="PackedScene" uid="uid://b2v807j0onlh4" path="res://unit/unit.tscn" id="1_57m6a"]
+[ext_resource type="PackedScene" uid="uid://fba1w3wgxi34" path="res://unit/unit.tscn" id="1_57m6a"]
 [ext_resource type="Script" path="res://ui/interactable_unit.gd" id="1_rje67"]
+[ext_resource type="Texture2D" uid="uid://brnoiakc81opc" path="res://assets/icons/din_32.svg" id="3_l8jb6"]
 
 [node name="InteractableUnit" type="Button"]
 anchors_preset = 15
@@ -25,5 +26,32 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 mouse_filter = 1
+
+[node name="PriceContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 32.0
+offset_top = -16.0
+offset_right = 32.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PriceContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PriceContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "1
+"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="PriceContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_l8jb6")
+expand_mode = 2
+stretch_mode = 3
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

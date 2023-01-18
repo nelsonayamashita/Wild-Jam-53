@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://ih4vanw7codj"]
+
+[ext_resource type="Texture2D" uid="uid://y3ymtc7yfj7i" path="res://assets/special/energy_spatk.svg" id="1_lb0nf"]
+[ext_resource type="Script" path="res://components/specials/component_special.gd" id="2_05hmo"]
+
+[resource]
+script = ExtResource("2_05hmo")
+special_damage = 16
+id = 0
+level = 1
+image = ExtResource("1_lb0nf")
+effect = null
+attack_type = 2

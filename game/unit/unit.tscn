@@ -1,19 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://b2v807j0onlh4"]
+[gd_scene load_steps=13 format=3 uid="uid://fba1w3wgxi34"]
 
+[ext_resource type="Theme" uid="uid://deqvgv4ausak" path="res://ui/autobots_theme.tres" id="1_3myfv"]
 [ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon_96.svg" id="1_5vash"]
 [ext_resource type="Script" path="res://unit/unit.gd" id="1_e7ih2"]
-[ext_resource type="Texture2D" uid="uid://cwx4x5awnjhcq" path="res://assets/atk.svg" id="3_7ji3q"]
-[ext_resource type="Texture2D" uid="uid://txrj6exhnuy4" path="res://assets/sp-atk.svg" id="4_j4817"]
-[ext_resource type="Texture2D" uid="uid://2mnnjdrl54gu" path="res://assets/def.svg" id="4_x6cj8"]
-[ext_resource type="Texture2D" uid="uid://bia7fffi21egl" path="res://assets/spd.svg" id="5_lg3da"]
-[ext_resource type="Texture2D" uid="uid://d2q2wap35jrni" path="res://assets/nuc.svg" id="7_xro1i"]
-[ext_resource type="Texture2D" uid="uid://cjvguixaly63x" path="res://assets/slice.svg" id="8_bvwnw"]
-[ext_resource type="Texture2D" uid="uid://x7r31d44gf54" path="res://assets/impact.svg" id="9_bx2km"]
-[ext_resource type="Texture2D" uid="uid://d07nsgpmrw3eu" path="res://assets/energy.svg" id="10_a0slj"]
+[ext_resource type="Texture2D" uid="uid://cwx4x5awnjhcq" path="res://assets/icons/atk.svg" id="3_b8tqf"]
+[ext_resource type="Texture2D" uid="uid://2mnnjdrl54gu" path="res://assets/icons/def.svg" id="4_d13yv"]
+[ext_resource type="Texture2D" uid="uid://bia7fffi21egl" path="res://assets/icons/spd.svg" id="5_yoqsg"]
+[ext_resource type="Texture2D" uid="uid://txrj6exhnuy4" path="res://assets/icons/sp-atk.svg" id="6_yc1ua"]
+[ext_resource type="Texture2D" uid="uid://d2q2wap35jrni" path="res://assets/icons/nuc.svg" id="7_t10ih"]
+[ext_resource type="Texture2D" uid="uid://cjvguixaly63x" path="res://assets/icons/slice.svg" id="8_vyo74"]
+[ext_resource type="Texture2D" uid="uid://x7r31d44gf54" path="res://assets/icons/impact.svg" id="9_xkpwm"]
+[ext_resource type="Texture2D" uid="uid://d07nsgpmrw3eu" path="res://assets/icons/energy.svg" id="10_b5fhg"]
+[ext_resource type="Texture2D" uid="uid://dppll6oucelh2" path="res://assets/icons/star.svg" id="12_ti7mg"]
 
 [node name="Unit" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_3myfv")
 script = ExtResource("1_e7ih2")
 
 [node name="UnitArt" type="TextureRect" parent="."]
@@ -23,34 +26,36 @@ offset_top = -48.0
 offset_right = 48.0
 offset_bottom = 48.0
 texture = ExtResource("1_5vash")
+stretch_mode = 2
 
 [node name="StatIcon" type="Node2D" parent="."]
-position = Vector2(-16, 48)
+position = Vector2(-24, 56)
+metadata/_edit_group_ = true
 
 [node name="AttackIcon" type="Sprite2D" parent="StatIcon"]
 visible = false
-texture = ExtResource("3_7ji3q")
+texture = ExtResource("3_b8tqf")
 
 [node name="DefenceIcon" type="Sprite2D" parent="StatIcon"]
 visible = false
-texture = ExtResource("4_x6cj8")
+texture = ExtResource("4_d13yv")
 
 [node name="MovementIcon" type="Sprite2D" parent="StatIcon"]
 visible = false
-texture = ExtResource("5_lg3da")
+texture = ExtResource("5_yoqsg")
 
 [node name="SpecialIcon" type="Sprite2D" parent="StatIcon"]
-texture = ExtResource("4_j4817")
+texture = ExtResource("6_yc1ua")
 
 [node name="CoreIcon" type="Sprite2D" parent="StatIcon"]
 visible = false
-texture = ExtResource("7_xro1i")
+texture = ExtResource("7_t10ih")
 
 [node name="StatValue" type="Label" parent="."]
 layout_mode = 0
-offset_top = 32.0
+offset_top = 24.0
 offset_right = 32.0
-offset_bottom = 64.0
+offset_bottom = 88.0
 text = "99"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -60,12 +65,17 @@ position = Vector2(-64, -64)
 
 [node name="SliceIcon" type="Sprite2D" parent="ElementIcon"]
 position = Vector2(64, 16)
-texture = ExtResource("8_bvwnw")
+texture = ExtResource("8_vyo74")
 
 [node name="ImpactIcon" type="Sprite2D" parent="ElementIcon"]
 position = Vector2(64, 16)
-texture = ExtResource("9_bx2km")
+texture = ExtResource("9_xkpwm")
 
 [node name="EnergyIcon" type="Sprite2D" parent="ElementIcon"]
 position = Vector2(64, 16)
-texture = ExtResource("10_a0slj")
+texture = ExtResource("10_b5fhg")
+
+[node name="Star" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-40, -40)
+texture = ExtResource("12_ti7mg")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://jce240cha1fn"]
+
+[ext_resource type="Texture2D" uid="uid://d3qgh4ei5gnsp" path="res://assets/attack/energy_atk.svg" id="1_sr3g2"]
+[ext_resource type="Script" path="res://components/attacks/component_attack.gd" id="2_hobh0"]
+
+[resource]
+script = ExtResource("2_hobh0")
+attack = 9
+id = 0
+level = 1
+image = ExtResource("1_sr3g2")
+effect = null
+attack_type = 2

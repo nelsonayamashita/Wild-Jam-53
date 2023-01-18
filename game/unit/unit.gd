@@ -6,6 +6,7 @@ extends Control
 @onready var stat_icon: Node2D = $StatIcon
 @onready var element_icon: Node2D = $ElementIcon
 @onready var stat_value: Label = $StatValue
+@onready var star: Sprite2D = $Star
 
 func _ready() -> void:
 	if component == null:
@@ -34,6 +35,11 @@ func fill(_component: Resource) -> void:
 		_update_stat_value(component.temperature_limit)
 		_show_element_icon(3)
 		_show_stat_icon("Core")
+	
+	if component.level == 1:
+		star.hide()
+	elif component.level == 2:
+		star.show()
 	
 	unit_art.texture = component.image
 
@@ -71,6 +77,7 @@ func clear() -> void:
 	unit_art.texture = null
 	component = null
 	stat_value.hide()
+	star.hide()
 	_show_stat_icon("") # Empty string and 3 will hide all elements
 	_show_element_icon(3)
 
@@ -84,7 +91,6 @@ func _show_stat_icon(stat: String) -> void:
 	for child in stat_icon.get_children():
 		if child.name == stat + "Icon":
 			child.show()
-			print("Showing stat ", child.name)
 		else:
 			child.hide()
 
@@ -94,6 +100,5 @@ func _show_element_icon(element: int) -> void:
 	for child in element_icon.get_children():
 		if child.name == d[element] + "Icon":
 			child.show()
-			print("Showing element ", child.name)
 		else:
 			child.hide()

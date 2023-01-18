@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cuboojl4mgje1"]
+[gd_scene load_steps=11 format=3 uid="uid://cuboojl4mgje1"]
 
+[ext_resource type="Theme" uid="uid://deqvgv4ausak" path="res://ui/autobots_theme.tres" id="1_adxkj"]
 [ext_resource type="Script" path="res://ui/shop_screen.gd" id="1_f2q0l"]
 [ext_resource type="PackedScene" uid="uid://txk81s0fk43w" path="res://ui/interactable_unit.tscn" id="2_ufuin"]
-[ext_resource type="PackedScene" uid="uid://cryogmcqdk5ue" path="res://ui/player_assembler.tscn" id="3_27308"]
+[ext_resource type="PackedScene" uid="uid://da6on2w2s3yia" path="res://ui/player_assembler.tscn" id="3_27308"]
+[ext_resource type="Texture2D" uid="uid://coln0rxqbnb2o" path="res://assets/backgrounds/garagem (pilar).png" id="3_tgi0q"]
 [ext_resource type="PackedScene" uid="uid://dl1w1qb3deay1" path="res://ui/stored_unit.tscn" id="4_43v0l"]
+[ext_resource type="Texture2D" uid="uid://cbi3n6gde7dy6" path="res://assets/ui/NinePatchRectv3.svg" id="4_j0lsc"]
+[ext_resource type="Texture2D" uid="uid://upmh5jdawt2e" path="res://assets/ui/NinePatchRectv2.svg" id="4_ptd08"]
+[ext_resource type="PackedScene" uid="uid://chb8ww3qi2njg" path="res://ui/rerol_button.tscn" id="5_i3suh"]
+[ext_resource type="Texture2D" uid="uid://6tqeeqspn8qq" path="res://assets/icons/din.svg" id="7_dxc2g"]
 
 [node name="ShopScreen" type="Control"]
 layout_mode = 3
@@ -12,31 +18,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_adxkj")
 script = ExtResource("1_f2q0l")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_tgi0q")
 
 [node name="Shop" type="Control" parent="."]
 layout_mode = 1
-anchor_top = 0.66
+anchor_top = 0.711
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
 
+[node name="ShopBG" type="NinePatchRect" parent="Shop"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_j0lsc")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 44
+patch_margin_top = 44
+patch_margin_right = 44
+patch_margin_bottom = 44
+
 [node name="MarginContainer" type="MarginContainer" parent="Shop"]
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.15
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 40
+theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
-
-[node name="Panel" type="Panel" parent="Shop/MarginContainer"]
-visible = false
-layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Shop/MarginContainer"]
 layout_mode = 2
@@ -47,7 +72,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 8
 
-[node name="RerolButton" type="Button" parent="Shop/MarginContainer/HBoxContainer/Item0"]
+[node name="RerolButton" parent="Shop/MarginContainer/HBoxContainer/Item0" instance=ExtResource("5_i3suh")]
 layout_mode = 2
 
 [node name="Item1" type="MarginContainer" parent="Shop/MarginContainer/HBoxContainer"]
@@ -103,24 +128,104 @@ layout_mode = 2
 [node name="PlayerAssembler" parent="." instance=ExtResource("3_27308")]
 layout_mode = 1
 
-[node name="UnitStorage" type="VBoxContainer" parent="."]
+[node name="StorageMargin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.087
-anchor_top = 0.133
-anchor_right = 0.212
+anchor_left = 0.1
+anchor_top = 0.022
+anchor_right = 0.225
+anchor_bottom = 0.689
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StorageMargin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StorageMargin/VBoxContainer"]
+layout_mode = 2
+text = "Storage"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="StorageMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StorageBG" type="NinePatchRect" parent="StorageMargin/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("4_ptd08")
+region_rect = Rect2(0, 0, 128, 128)
+patch_margin_left = 44
+patch_margin_top = 44
+patch_margin_right = 40
+patch_margin_bottom = 40
+
+[node name="UnitStorage" type="VBoxContainer" parent="StorageMargin/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StoredUnit1" parent="StorageMargin/VBoxContainer/MarginContainer/UnitStorage" instance=ExtResource("4_43v0l")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StoredUnit2" parent="StorageMargin/VBoxContainer/MarginContainer/UnitStorage" instance=ExtResource("4_43v0l")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="StoredUnit3" parent="StorageMargin/VBoxContainer/MarginContainer/UnitStorage" instance=ExtResource("4_43v0l")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MoneyUI" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MoneyUI"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ValueLabel" type="Label" parent="MoneyUI/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 64
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="MoneyIcon" type="TextureRect" parent="MoneyUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_dxc2g")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7
+anchor_top = 0.533
+anchor_right = 1.0
 anchor_bottom = 0.711
-offset_top = 0.239998
-offset_bottom = 0.0799866
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="StoredUnit1" parent="UnitStorage" instance=ExtResource("4_43v0l")]
+[node name="Button" type="Button" parent="MarginContainer"]
 layout_mode = 2
-
-[node name="StoredUnit2" parent="UnitStorage" instance=ExtResource("4_43v0l")]
-layout_mode = 2
-
-[node name="StoredUnit3" parent="UnitStorage" instance=ExtResource("4_43v0l")]
-layout_mode = 2
+text = "Battle!"
 
 [connection signal="pressed" from="Shop/MarginContainer/HBoxContainer/Item0/RerolButton" to="." method="_on_rerol_button_pressed"]
 [connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item1/AttackItem" to="." method="_on_attack_item_unit_interacted"]
@@ -128,13 +233,13 @@ layout_mode = 2
 [connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item3/SpecialItem" to="." method="_on_special_item_unit_interacted"]
 [connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item4/MovementItem" to="." method="_on_movement_item_unit_interacted"]
 [connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item5/CoreItem" to="." method="_on_core_item_unit_interacted"]
-[connection signal="unit_stored" from="PlayerAssembler/DefenceBattler" to="." method="_on_defence_battler_unit_stored"]
-[connection signal="unit_stored" from="PlayerAssembler/SpecialBattler" to="." method="_on_special_battler_unit_stored"]
-[connection signal="unit_stored" from="PlayerAssembler/CoreBattler" to="." method="_on_core_battler_unit_stored"]
-[connection signal="unit_stored" from="PlayerAssembler/AttackBattler" to="." method="_on_attack_battler_unit_stored"]
-[connection signal="unit_stored" from="PlayerAssembler/MovementBattler" to="." method="_on_movement_battler_unit_stored"]
-[connection signal="unit_equipped" from="UnitStorage/StoredUnit1" to="." method="_on_stored_unit_1_equipped"]
-[connection signal="unit_equipped" from="UnitStorage/StoredUnit2" to="." method="_on_stored_unit_2_equipped"]
-[connection signal="unit_equipped" from="UnitStorage/StoredUnit3" to="." method="_on_stored_unit_3_equipped"]
+[connection signal="unit_stored" from="PlayerAssembler/Frame/Head/DefenceBattler" to="." method="_on_defence_battler_unit_stored"]
+[connection signal="unit_stored" from="PlayerAssembler/Frame/Special/SpecialBattler" to="." method="_on_special_battler_unit_stored"]
+[connection signal="unit_stored" from="PlayerAssembler/Frame/Core/CoreBattler" to="." method="_on_core_battler_unit_stored"]
+[connection signal="unit_stored" from="PlayerAssembler/Frame/Arm/AttackBattler" to="." method="_on_attack_battler_unit_stored"]
+[connection signal="unit_stored" from="PlayerAssembler/Frame/Leg/MovementBattler" to="." method="_on_movement_battler_unit_stored"]
+[connection signal="unit_equipped" from="StorageMargin/VBoxContainer/MarginContainer/UnitStorage/StoredUnit1" to="." method="_on_stored_unit_1_equipped"]
+[connection signal="unit_equipped" from="StorageMargin/VBoxContainer/MarginContainer/UnitStorage/StoredUnit2" to="." method="_on_stored_unit_2_equipped"]
+[connection signal="unit_equipped" from="StorageMargin/VBoxContainer/MarginContainer/UnitStorage/StoredUnit3" to="." method="_on_stored_unit_3_equipped"]
 
 [editable path="PlayerAssembler"]

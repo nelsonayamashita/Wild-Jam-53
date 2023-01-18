@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c7tadfyur54i"]
+
+[ext_resource type="Texture2D" uid="uid://bcftbca2mco4k" path="res://assets/core/2_core.svg" id="1_5almi"]
+[ext_resource type="Script" path="res://components/cores/component_cores.gd" id="2_ap2u1"]
+
+[resource]
+script = ExtResource("2_ap2u1")
+temperature_limit = 14
+id = 1
+level = 1
+image = ExtResource("1_5almi")
+effect = null

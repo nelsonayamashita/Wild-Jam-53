@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("1_pjcet")
-special_damage = 15
+special_damage = 10
+id = -1
+level = 1
 image = ExtResource("1_c58cd")
 effect = null
-attack_type = 2
-rarity = 0
+attack_type = 3

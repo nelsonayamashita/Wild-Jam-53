@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dhpsvwb14n2e1"]
+
+[ext_resource type="Texture2D" uid="uid://ewyrtdx504ei" path="res://assets/attack/impact_atk.svg" id="1_30g1b"]
+[ext_resource type="Script" path="res://components/attacks/component_attack.gd" id="2_w6s2t"]
+
+[resource]
+script = ExtResource("2_w6s2t")
+attack = 10
+id = 1
+level = 1
+image = ExtResource("1_30g1b")
+effect = null
+attack_type = 1
