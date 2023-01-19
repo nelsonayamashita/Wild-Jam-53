@@ -1,0 +1,21 @@
+﻿Vida = 5
+Dano =  1
+
+Peitos:
+	recebe dano +mana
+	aumenta dano atcNormal
+	carrega 2x mana e da 0.5x dano de atcSpecial
+	+ mana quando crita
+	- mana mais dano de atcNormal
+
+
+Pernas:
+	Aumento o dano quando tem tudo do mesmo tipo
+	Evasão(?)
+
+Tipos de arma:
+
+				Cortante	Impacto		Energia
+Ataque Normal	1.2d		1d			0.8d
+Ataque Especial	1.8d		2d			2.8d
+Cabeça(?)		1v			1v			1v
