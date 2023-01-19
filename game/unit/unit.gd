@@ -44,7 +44,10 @@ func fill(_component: Resource) -> void:
 	unit_art.texture = component.image
 
 
-func random_fill(type: String) -> void:
+func random_fill() -> void:
+	
+	var type: String = ["Attack", "Defence", "Movement", "Special", "Core"][randi() % 5]
+	
 	match type:
 		"Attack":
 			component = GlobalData.get_random_attack_component()

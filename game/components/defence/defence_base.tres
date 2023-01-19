@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bnpa1vvqyivhw"]
 
-[ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon_96.svg" id="1_hsl4o"]
+[ext_resource type="Texture2D" uid="uid://by1s838ks7an2" path="res://assets/heads/base_head.svg" id="1_mqkr5"]
 [ext_resource type="Script" path="res://components/defence/component_defence.gd" id="1_v8q1v"]
 
 [resource]
@@ -8,6 +8,6 @@ script = ExtResource("1_v8q1v")
 defence = 8
 id = -1
 level = 1
-image = ExtResource("1_hsl4o")
+image = ExtResource("1_mqkr5")
 effect = null
 defence_type = 3

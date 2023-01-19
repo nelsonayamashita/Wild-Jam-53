@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://xh5exrspr7pn"]
 
-[ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon_96.svg" id="1_c58cd"]
+[ext_resource type="Texture2D" uid="uid://dchwytgjp2km" path="res://assets/special/base_spatk.svg" id="1_h5bdr"]
 [ext_resource type="Script" path="res://components/specials/component_special.gd" id="1_pjcet"]
 
 [resource]
@@ -8,6 +8,6 @@ script = ExtResource("1_pjcet")
 special_damage = 10
 id = -1
 level = 1
-image = ExtResource("1_c58cd")
+image = ExtResource("1_h5bdr")
 effect = null
 attack_type = 3

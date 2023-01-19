@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://wwcxi6hj84bf"]
 
-[ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon_96.svg" id="1_hxohy"]
+[ext_resource type="Texture2D" uid="uid://4a5e6x1uikr" path="res://assets/attack/base_atk.svg" id="1_jhgek"]
 [ext_resource type="Script" path="res://components/attacks/component_attack.gd" id="1_oykar"]
 
 [resource]
@@ -8,6 +8,6 @@ script = ExtResource("1_oykar")
 attack = 8
 id = -1
 level = 1
-image = ExtResource("1_hxohy")
+image = ExtResource("1_jhgek")
 effect = null
 attack_type = 3

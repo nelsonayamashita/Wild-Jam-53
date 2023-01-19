@@ -13,10 +13,10 @@ func buy() -> void:
 	disabled = true
 
 
-func random_restore(type: String) -> void:
+func random_restore() -> void:
 	disabled = false
 	price_container.show()
-	unit.random_fill(type)
+	unit.random_fill()
 
 
 func _on_pressed() -> void:

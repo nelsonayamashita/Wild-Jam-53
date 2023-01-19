@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://bl6tv747rp44k"]
+
+[ext_resource type="Script" path="res://battler/battler.gd" id="1_dreo1"]
+[ext_resource type="Texture2D" uid="uid://dean3eggxkp8f" path="res://assets/core/3_core.svg" id="1_gsdo4"]
+[ext_resource type="Texture2D" uid="uid://c3a5neb2tb873" path="res://assets/special/impact_spatk.svg" id="2_0n2y5"]
+[ext_resource type="Texture2D" uid="uid://ewyrtdx504ei" path="res://assets/attack/impact_atk.svg" id="3_qjfn8"]
+[ext_resource type="Texture2D" uid="uid://ckc1etkofqnri" path="res://assets/movement/wheel_movement.svg" id="4_12x62"]
+[ext_resource type="Texture2D" uid="uid://ertj68pvuygq" path="res://assets/heads/impact_head.svg" id="5_ledgr"]
+
+[node name="Batler" type="Node2D"]
+script = ExtResource("1_dreo1")
+
+[node name="Core" type="Sprite2D" parent="."]
+texture = ExtResource("1_gsdo4")
+
+[node name="LeftArm" type="Sprite2D" parent="."]
+position = Vector2(-80, 0)
+texture = ExtResource("2_0n2y5")
+
+[node name="RightArm" type="Sprite2D" parent="."]
+position = Vector2(80, 0)
+texture = ExtResource("3_qjfn8")
+
+[node name="Leg" type="Sprite2D" parent="."]
+position = Vector2(0, 80)
+texture = ExtResource("4_12x62")
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(0, -80)
+texture = ExtResource("5_ledgr")

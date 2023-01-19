@@ -1,12 +1,12 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bsvrl854kjrwy"]
 
-[ext_resource type="Texture2D" uid="uid://dhogr4uoms4j3" path="res://icon_96.svg" id="1_ayr2l"]
 [ext_resource type="Script" path="res://components/movements/component_movement.gd" id="1_bem64"]
+[ext_resource type="Texture2D" uid="uid://7u1c7ay3gkoa" path="res://assets/movement/leg_movement.svg" id="1_gfine"]
 
 [resource]
 script = ExtResource("1_bem64")
 speed = 8
 id = -1
 level = 1
-image = ExtResource("1_ayr2l")
+image = ExtResource("1_gfine")
 effect = null

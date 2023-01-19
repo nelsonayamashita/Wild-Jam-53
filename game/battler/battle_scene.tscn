@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgub8mmuj4d3s"]
+
+[ext_resource type="Texture2D" uid="uid://147ja3sbnvhx" path="res://assets/backgrounds/coliseu (day).png" id="1_dl7xf"]
+[ext_resource type="Script" path="res://battler/battle_scene.gd" id="1_nmxvo"]
+[ext_resource type="PackedScene" uid="uid://bl6tv747rp44k" path="res://battler/batler.tscn" id="2_wwuo3"]
+
+[node name="BattleScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nmxvo")
+
+[node name="BackGround" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_dl7xf")
+
+[node name="PlayerBattler" parent="." instance=ExtResource("2_wwuo3")]
+position = Vector2(384, 496)

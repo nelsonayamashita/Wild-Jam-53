@@ -81,7 +81,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="AttackItem" parent="Shop/MarginContainer/HBoxContainer/Item1" instance=ExtResource("2_ufuin")]
+[node name="ShopItem1" parent="Shop/MarginContainer/HBoxContainer/Item1" instance=ExtResource("2_ufuin")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -91,7 +91,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="DefenceItem" parent="Shop/MarginContainer/HBoxContainer/Item2" instance=ExtResource("2_ufuin")]
+[node name="ShopItem2" parent="Shop/MarginContainer/HBoxContainer/Item2" instance=ExtResource("2_ufuin")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -101,7 +101,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="SpecialItem" parent="Shop/MarginContainer/HBoxContainer/Item3" instance=ExtResource("2_ufuin")]
+[node name="ShopItem3" parent="Shop/MarginContainer/HBoxContainer/Item3" instance=ExtResource("2_ufuin")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -111,7 +111,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="MovementItem" parent="Shop/MarginContainer/HBoxContainer/Item4" instance=ExtResource("2_ufuin")]
+[node name="ShopItem4" parent="Shop/MarginContainer/HBoxContainer/Item4" instance=ExtResource("2_ufuin")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -121,7 +121,7 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_right = 16
 
-[node name="CoreItem" parent="Shop/MarginContainer/HBoxContainer/Item5" instance=ExtResource("2_ufuin")]
+[node name="ShopItem5" parent="Shop/MarginContainer/HBoxContainer/Item5" instance=ExtResource("2_ufuin")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -223,16 +223,16 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Button" type="Button" parent="MarginContainer"]
+[node name="StartButton" type="Button" parent="MarginContainer"]
 layout_mode = 2
 text = "Battle!"
 
 [connection signal="pressed" from="Shop/MarginContainer/HBoxContainer/Item0/RerolButton" to="." method="_on_rerol_button_pressed"]
-[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item1/AttackItem" to="." method="_on_attack_item_unit_interacted"]
-[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item2/DefenceItem" to="." method="_on_defence_item_unit_interacted"]
-[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item3/SpecialItem" to="." method="_on_special_item_unit_interacted"]
-[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item4/MovementItem" to="." method="_on_movement_item_unit_interacted"]
-[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item5/CoreItem" to="." method="_on_core_item_unit_interacted"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item1/ShopItem1" to="." method="_on_shop_item_1_unit_interacted"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item2/ShopItem2" to="." method="_on_shop_item_2_unit_interacted"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item3/ShopItem3" to="." method="_on_shop_item_3_unit_interacted"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item4/ShopItem4" to="." method="_on_shop_item_4_unit_interacted"]
+[connection signal="unit_interacted" from="Shop/MarginContainer/HBoxContainer/Item5/ShopItem5" to="." method="_on_shop_item_5_unit_interacted"]
 [connection signal="unit_stored" from="PlayerAssembler/Frame/Head/DefenceBattler" to="." method="_on_defence_battler_unit_stored"]
 [connection signal="unit_stored" from="PlayerAssembler/Frame/Special/SpecialBattler" to="." method="_on_special_battler_unit_stored"]
 [connection signal="unit_stored" from="PlayerAssembler/Frame/Core/CoreBattler" to="." method="_on_core_battler_unit_stored"]
@@ -241,5 +241,6 @@ text = "Battle!"
 [connection signal="unit_equipped" from="StorageMargin/VBoxContainer/MarginContainer/UnitStorage/StoredUnit1" to="." method="_on_stored_unit_1_equipped"]
 [connection signal="unit_equipped" from="StorageMargin/VBoxContainer/MarginContainer/UnitStorage/StoredUnit2" to="." method="_on_stored_unit_2_equipped"]
 [connection signal="unit_equipped" from="StorageMargin/VBoxContainer/MarginContainer/UnitStorage/StoredUnit3" to="." method="_on_stored_unit_3_equipped"]
+[connection signal="pressed" from="MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
 
 [editable path="PlayerAssembler"]

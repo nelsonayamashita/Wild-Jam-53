@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://chb8ww3qi2njg"]
 
-[ext_resource type="Texture2D" uid="uid://bd43wvpgtpagv" path="res://assets/icons/spd_128.svg" id="2_f3727"]
+[ext_resource type="Texture2D" uid="uid://cyxysl3di5tet" path="res://assets/icons/recycle2.svg" id="1_cy1ev"]
 [ext_resource type="Texture2D" uid="uid://brnoiakc81opc" path="res://assets/icons/din_32.svg" id="3_2sjoa"]
 
 [node name="RerolButton" type="Button"]
@@ -22,7 +22,7 @@ grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer"]
 layout_mode = 2
-texture = ExtResource("2_f3727")
+texture = ExtResource("1_cy1ev")
 
 [node name="PriceContainer" type="MarginContainer" parent="."]
 layout_mode = 1

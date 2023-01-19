@@ -1,10 +1,10 @@
 extends Control
 
-@onready var attack_item: Button = %AttackItem
-@onready var defence_item: Button = %DefenceItem
-@onready var movement_item: Button = %MovementItem
-@onready var special_item: Button = %SpecialItem
-@onready var core_item: Button = %CoreItem
+@onready var shop_item_1: Button = %ShopItem1
+@onready var shop_item_2: Button = %ShopItem2
+@onready var shop_item_3: Button = %ShopItem3
+@onready var shop_item_4: Button = %ShopItem4
+@onready var shop_item_5: Button = %ShopItem5
 
 @onready var player_assembler: Control = $PlayerAssembler
 @onready var defence_battler: Control = $PlayerAssembler/Frame/Head/DefenceBattler
@@ -22,185 +22,269 @@ extends Control
 
 
 func _ready() -> void:
-	attack_item.random_restore("Attack")
-	defence_item.random_restore("Defence")
-	movement_item.random_restore("Movement")
-	special_item.random_restore("Special")
-	core_item.random_restore("Core")
+	shop_item_1.random_restore()
+	shop_item_2.random_restore()
+	shop_item_3.random_restore()
+	shop_item_4.random_restore()
+	shop_item_5.random_restore()
 	
 	GlobalData.money_changed.connect(_on_money_changed)
-	GlobalData.money = GlobalData.money # force ui update
+	GlobalData.money = 10
+	
+	if GlobalData.player_attack:
+		attack_battler.store(GlobalData.player_attack)
+	
+	if GlobalData.player_defence:
+		defence_battler.store(GlobalData.player_defence)
+	
+	if GlobalData.player_special_attack:
+		special_battler.store(GlobalData.player_special_attack)
+	
+	if GlobalData.player_movement:
+		movement_battler.store(GlobalData.player_movement)
+	
+	if GlobalData.player_core:
+		core_battler.store(GlobalData.player_core)
+	
+	if GlobalData.stored_component_1:
+		stored_unit_1.store(GlobalData.stored_component_1)
+		
+	if GlobalData.stored_component_2:
+		stored_unit_2.store(GlobalData.stored_component_2)
+		
+	if GlobalData.stored_component_3:
+		stored_unit_3.store(GlobalData.stored_component_3)
 
 # ---Shop---
 
-func _on_attack_item_unit_interacted(_unit: AttackComponent) -> void:
+func _on_shop_item_1_unit_interacted(_unit: Resource) -> void:
+	var player_battler: Control
+	if _unit is AttackComponent:
+		player_battler = attack_battler
+	elif _unit is DefenceComponent:
+		player_battler = defence_battler
+	elif _unit is MovementComponent:
+		player_battler = movement_battler
+	elif _unit is SpecialComponent:
+		player_battler = special_battler
+	elif _unit is CoreComponent:
+		player_battler = core_battler
+	
 	if GlobalData.money > 0:
-		if attack_battler.is_empty():
-			attack_item.buy()
-			attack_battler.store(_unit)
+		if player_battler.is_empty():
+			shop_item_1.buy()
+			player_battler.store(_unit)
 		elif stored_unit_1.is_empty():
-			attack_item.buy()
+			shop_item_1.buy()
 			stored_unit_1.store(_unit)
 		elif stored_unit_2.is_empty():
-			attack_item.buy()
+			shop_item_1.buy()
 			stored_unit_2.store(_unit)
 		elif stored_unit_3.is_empty():
-			attack_item.buy()
+			shop_item_1.buy()
 			stored_unit_3.store(_unit)
 		elif( 
-			_unit.id == attack_battler.unit.component.id
+			_unit.id == player_battler.unit.component.id
 			and _unit.id == stored_unit_1.unit.component.id
 			and _unit.id == stored_unit_2.unit.component.id
 			and _unit.id == stored_unit_3.unit.component.id
 		):
-			attack_item.buy()
-			attack_battler.clear()
+			shop_item_1.buy()
+			player_battler.clear()
 			stored_unit_1.clear()
 			stored_unit_2.clear()
 			stored_unit_3.clear()
-			attack_battler.store(GlobalData.upgrade_attack_components[_unit.id])
+			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
 			print("can't")
 	else:
 		print("can't")
 
 
-func _on_defence_item_unit_interacted(_unit: DefenceComponent) -> void:
+func _on_shop_item_2_unit_interacted(_unit: Resource) -> void:
+	var player_battler: Control
+	if _unit is AttackComponent:
+		player_battler = attack_battler
+	elif _unit is DefenceComponent:
+		player_battler = defence_battler
+	elif _unit is MovementComponent:
+		player_battler = movement_battler
+	elif _unit is SpecialComponent:
+		player_battler = special_battler
+	elif _unit is CoreComponent:
+		player_battler = core_battler
+	
 	if GlobalData.money > 0:
-		if defence_battler.is_empty():
-			defence_item.buy()
-			defence_battler.store(_unit)
+		if player_battler.is_empty():
+			shop_item_2.buy()
+			player_battler.store(_unit)
 		elif stored_unit_1.is_empty():
-			defence_item.buy()
+			shop_item_2.buy()
 			stored_unit_1.store(_unit)
 		elif stored_unit_2.is_empty():
-			defence_item.buy()
+			shop_item_2.buy()
 			stored_unit_2.store(_unit)
 		elif stored_unit_3.is_empty():
-			defence_item.buy()
+			shop_item_2.buy()
 			stored_unit_3.store(_unit)
 		elif( 
-			_unit.id == defence_battler.unit.component.id
+			_unit.id == player_battler.unit.component.id
 			and _unit.id == stored_unit_1.unit.component.id
 			and _unit.id == stored_unit_2.unit.component.id
 			and _unit.id == stored_unit_3.unit.component.id
 		):
-			defence_item.buy()
-			defence_battler.clear()
+			shop_item_2.buy()
+			player_battler.clear()
 			stored_unit_1.clear()
 			stored_unit_2.clear()
 			stored_unit_3.clear()
-			defence_battler.store(GlobalData.upgrade_defence_components[_unit.id])
+			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
-			print("Can't")
+			print("can't")
 	else:
-		print("Can't")
+		print("can't")
 
 
-func _on_special_item_unit_interacted(_unit: SpecialComponent) -> void:
+func _on_shop_item_3_unit_interacted(_unit: Resource) -> void:
+	var player_battler: Control
+	if _unit is AttackComponent:
+		player_battler = attack_battler
+	elif _unit is DefenceComponent:
+		player_battler = defence_battler
+	elif _unit is MovementComponent:
+		player_battler = movement_battler
+	elif _unit is SpecialComponent:
+		player_battler = special_battler
+	elif _unit is CoreComponent:
+		player_battler = core_battler
+	
 	if GlobalData.money > 0:
-		if special_battler.is_empty():
-			special_item.buy()
-			special_battler.store(_unit)
+		if player_battler.is_empty():
+			shop_item_3.buy()
+			player_battler.store(_unit)
 		elif stored_unit_1.is_empty():
-			special_item.buy()
+			shop_item_3.buy()
 			stored_unit_1.store(_unit)
 		elif stored_unit_2.is_empty():
-			special_item.buy()
+			shop_item_3.buy()
 			stored_unit_2.store(_unit)
 		elif stored_unit_3.is_empty():
-			special_item.buy()
+			shop_item_3.buy()
 			stored_unit_3.store(_unit)
 		elif( 
-			_unit.id == special_battler.unit.component.id
+			_unit.id == player_battler.unit.component.id
 			and _unit.id == stored_unit_1.unit.component.id
 			and _unit.id == stored_unit_2.unit.component.id
 			and _unit.id == stored_unit_3.unit.component.id
 		):
-			special_item.buy()
-			special_battler.clear()
+			shop_item_3.buy()
+			player_battler.clear()
 			stored_unit_1.clear()
 			stored_unit_2.clear()
 			stored_unit_3.clear()
-			special_battler.store(GlobalData.upgrade_special_components[_unit.id])
+			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
-			print("Can't")
+			print("can't")
 	else:
-		print("Can't")
+		print("can't")
 
 
-func _on_movement_item_unit_interacted(_unit: MovementComponent) -> void:
+func _on_shop_item_4_unit_interacted(_unit: Resource) -> void:
+	var player_battler: Control
+	if _unit is AttackComponent:
+		player_battler = attack_battler
+	elif _unit is DefenceComponent:
+		player_battler = defence_battler
+	elif _unit is MovementComponent:
+		player_battler = movement_battler
+	elif _unit is SpecialComponent:
+		player_battler = special_battler
+	elif _unit is CoreComponent:
+		player_battler = core_battler
+	
 	if GlobalData.money > 0:
-		if movement_battler.is_empty():
-			movement_item.buy()
-			movement_battler.store(_unit)
+		if player_battler.is_empty():
+			shop_item_4.buy()
+			player_battler.store(_unit)
 		elif stored_unit_1.is_empty():
-			movement_item.buy()
+			shop_item_4.buy()
 			stored_unit_1.store(_unit)
 		elif stored_unit_2.is_empty():
-			movement_item.buy()
+			shop_item_4.buy()
 			stored_unit_2.store(_unit)
 		elif stored_unit_3.is_empty():
-			movement_item.buy()
+			shop_item_4.buy()
 			stored_unit_3.store(_unit)
 		elif( 
-			_unit.id == movement_battler.unit.component.id
+			_unit.id == player_battler.unit.component.id
 			and _unit.id == stored_unit_1.unit.component.id
 			and _unit.id == stored_unit_2.unit.component.id
 			and _unit.id == stored_unit_3.unit.component.id
 		):
-			movement_item.buy()
-			movement_battler.clear()
+			shop_item_4.buy()
+			player_battler.clear()
 			stored_unit_1.clear()
 			stored_unit_2.clear()
 			stored_unit_3.clear()
-			movement_battler.store(GlobalData.upgrade_movement_components[_unit.id])
+			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
-			print("Can't")
+			print("can't")
 	else:
-		print("Cant")
+		print("can't")
 
 
-func _on_core_item_unit_interacted(_unit: CoreComponent) -> void:
+func _on_shop_item_5_unit_interacted(_unit: Resource) -> void:
+	var player_battler: Control
+	if _unit is AttackComponent:
+		player_battler = attack_battler
+	elif _unit is DefenceComponent:
+		player_battler = defence_battler
+	elif _unit is MovementComponent:
+		player_battler = movement_battler
+	elif _unit is SpecialComponent:
+		player_battler = special_battler
+	elif _unit is CoreComponent:
+		player_battler = core_battler
+	
 	if GlobalData.money > 0:
-		if core_battler.is_empty():
-			core_item.buy()
-			core_battler.store(_unit)
+		if player_battler.is_empty():
+			shop_item_5.buy()
+			player_battler.store(_unit)
 		elif stored_unit_1.is_empty():
-			core_item.buy()
+			shop_item_5.buy()
 			stored_unit_1.store(_unit)
 		elif stored_unit_2.is_empty():
-			core_item.buy()
+			shop_item_5.buy()
 			stored_unit_2.store(_unit)
 		elif stored_unit_3.is_empty():
-			core_item.buy()
+			shop_item_5.buy()
 			stored_unit_3.store(_unit)
 		elif( 
-			_unit.id == core_battler.unit.component.id
+			_unit.id == player_battler.unit.component.id
 			and _unit.id == stored_unit_1.unit.component.id
 			and _unit.id == stored_unit_2.unit.component.id
 			and _unit.id == stored_unit_3.unit.component.id
 		):
-			core_item.buy()
-			core_battler.clear()
+			shop_item_5.buy()
+			player_battler.clear()
 			stored_unit_1.clear()
 			stored_unit_2.clear()
 			stored_unit_3.clear()
-			core_battler.store(GlobalData.upgrade_core_components[_unit.id])
+			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
-			print("Can't")
+			print("can't")
 	else:
-		print("Cant")
+		print("can't")
 
 
 func _on_rerol_button_pressed() -> void:
 	if GlobalData.money >= 2:
 		GlobalData.money -= 2
-		attack_item.random_restore("Attack")
-		defence_item.random_restore("Defence")
-		movement_item.random_restore("Movement")
-		special_item.random_restore("Special")
-		core_item.random_restore("Core")
+		shop_item_1.random_restore()
+		shop_item_2.random_restore()
+		shop_item_3.random_restore()
+		shop_item_4.random_restore()
+		shop_item_5.random_restore()
 	else:
 		print("Can't")
 
@@ -316,6 +400,23 @@ func _on_stored_unit_3_equipped(unit)-> void:
 			stored_unit_3.clear()
 			core_battler.store(unit)
 
+# ------
 
 func _on_money_changed(value: int) -> void:
 	value_label.text = str(value)
+
+
+func _on_start_button_pressed() -> void:
+	GlobalData.player_attack = attack_battler.unit.component
+	GlobalData.player_defence = defence_battler.unit.component
+	GlobalData.player_special_attack = special_battler.unit.component
+	GlobalData.player_movement = movement_battler.unit.component
+	GlobalData.player_core = core_battler.unit.component
+	
+
+	GlobalData.stored_component_1 = stored_unit_1.unit.component
+	GlobalData.stored_component_2 = stored_unit_2.unit.component
+	GlobalData.stored_component_3 = stored_unit_3.unit.component
+
+	get_tree().change_scene_to_file("res://battler/battle_scene.tscn")
+
