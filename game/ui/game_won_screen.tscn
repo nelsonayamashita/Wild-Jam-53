@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=3 uid="uid://cwl1n3x87cliq"]
+
+[ext_resource type="Script" path="res://ui/game_won_screen.gd" id="1_a476m"]
+[ext_resource type="PackedScene" uid="uid://bl6tv747rp44k" path="res://battler/batler.tscn" id="1_emxep"]
+[ext_resource type="Theme" uid="uid://deqvgv4ausak" path="res://ui/autobots_theme.tres" id="2_a5pet"]
+[ext_resource type="Texture2D" uid="uid://dwk5ynjd1qtoe" path="res://assets/backgrounds/deserto (sunset).png" id="2_nn8vi"]
+
+[sub_resource type="Animation" id="Animation_v2whh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WonLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-352, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MessageLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1280, 112)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Retry:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wutg8"]
+resource_name = "start"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WonLabel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-352, 0), Vector2(480, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MessageLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 128), Vector2(432, 128)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Retry:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_msn0w"]
+_data = {
+"RESET": SubResource("Animation_v2whh"),
+"start": SubResource("Animation_wutg8")
+}
+
+[node name="GameWonScreen" type="CanvasLayer"]
+script = ExtResource("1_a476m")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nn8vi")
+
+[node name="Batler" parent="." instance=ExtResource("1_emxep")]
+position = Vector2(656, 544)
+
+[node name="LifeBar" parent="Batler" index="9"]
+visible = false
+
+[node name="ManaBar" parent="Batler" index="10"]
+visible = false
+
+[node name="WonLabel" type="Label" parent="."]
+offset_left = -352.0
+offset_right = -2.0
+offset_bottom = 187.0
+theme = ExtResource("2_a5pet")
+theme_override_font_sizes/font_size = 128
+text = "You won!"
+
+[node name="MessageLabel" type="Label" parent="."]
+offset_left = 1280.0
+offset_top = 112.0
+offset_right = 1719.0
+offset_bottom = 176.0
+theme = ExtResource("2_a5pet")
+text = "winner winner, automachine builder"
+
+[node name="Retry" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 576.0
+offset_top = 224.0
+offset_right = 715.0
+offset_bottom = 293.0
+theme = ExtResource("2_a5pet")
+text = "Play again"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start"
+libraries = {
+"": SubResource("AnimationLibrary_msn0w")
+}
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+
+[editable path="Batler"]

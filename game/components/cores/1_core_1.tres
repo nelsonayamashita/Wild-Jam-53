@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_ap2u1")
-temperature_limit = 14
+temperature_limit = 5
 id = 1
 level = 1
 image = ExtResource("1_5almi")
-effect = null
+tooltip = "Adds a 20% crit chance."
+effect = 1

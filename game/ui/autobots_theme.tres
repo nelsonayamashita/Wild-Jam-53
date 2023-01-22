@@ -1,6 +1,15 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://deqvgv4ausak"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://deqvgv4ausak"]
 
 [ext_resource type="FontFile" uid="uid://b5ujgaflmadr1" path="res://assets/fonts/Teko-Regular.ttf" id="1_m7hwb"]
+[ext_resource type="Texture2D" uid="uid://p3a5trjuqdol" path="res://assets/ui/NinePatchRect.svg" id="2_o172b"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htxlp"]
+texture = ExtResource("2_o172b")
+margin_left = 22.0
+margin_top = 22.0
+margin_right = 22.0
+margin_bottom = 22.0
+region_rect = Rect2(0, 0, 128, 128)
 
 [resource]
 default_font = ExtResource("1_m7hwb")
@@ -21,3 +30,8 @@ Label/colors/font_outline_color = Color(1, 1, 1, 1)
 Label/constants/outline_size = 20
 Label/font_sizes/font_size = 42
 Label/fonts/font = ExtResource("1_m7hwb")
+RichTextLabel/colors/default_color = Color(0, 0, 0, 1)
+RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 1)
+RichTextLabel/constants/outline_size = 20
+TooltipLabel/font_sizes/font_size = 28
+TooltipPanel/styles/panel = SubResource("StyleBoxTexture_htxlp")

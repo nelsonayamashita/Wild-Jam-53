@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("1_v8q1v")
-defence = 8
+defence = 7
 id = -1
 level = 1
 image = ExtResource("1_mqkr5")
+tooltip = null
 effect = null
 defence_type = 3

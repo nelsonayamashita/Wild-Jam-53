@@ -42,6 +42,12 @@ func fill(_component: Resource) -> void:
 		star.show()
 	
 	unit_art.texture = component.image
+	
+	var tween := create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	unit_art.scale = Vector2.ZERO
+	tween.tween_property(unit_art, "scale", Vector2.ONE, 0.5)
+	
+	tooltip_text = component.tooltip
 
 
 func random_fill() -> void:
@@ -73,11 +79,18 @@ func random_fill() -> void:
 			printerr(type, " is not Attack, Defence, Movement, Special or Core.")
 
 	_show_stat_icon(type)
+	
+	var tween := create_tween().set_trans(Tween.TRANS_ELASTIC).set_ease(Tween.EASE_OUT)
+	unit_art.scale = Vector2.ZERO
+	tween.tween_property(unit_art, "scale", Vector2.ONE, 0.5)
+	
 	unit_art.texture = component.image
+	tooltip_text = component.tooltip
 
 
 func clear() -> void:
 	unit_art.texture = null
+	tooltip_text = ""
 	component = null
 	stat_value.hide()
 	star.hide()

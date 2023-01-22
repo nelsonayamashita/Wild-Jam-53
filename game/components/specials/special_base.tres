@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("1_pjcet")
-special_damage = 10
+special_damage = 3
 id = -1
 level = 1
 image = ExtResource("1_h5bdr")
-effect = null
+tooltip = null
+effect = 0
 attack_type = 3

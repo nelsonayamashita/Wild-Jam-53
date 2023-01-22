@@ -1,12 +1,14 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://kso4irg4laxj"]
 
-[ext_resource type="Texture2D" uid="uid://dotgix3qxskrh" path="res://assets/movement/claw_movement.svg" id="1_0ptii"]
+[ext_resource type="Texture2D" uid="uid://ctm60nv4un874" path="res://assets/movement/claw_movement_upgrade.svg" id="1_2qs3i"]
 [ext_resource type="Script" path="res://components/movements/component_movement.gd" id="2_st25d"]
 
 [resource]
 script = ExtResource("2_st25d")
-speed = 14
+speed = 3
 id = 0
 level = 2
-image = ExtResource("1_0ptii")
-effect = null
+image = ExtResource("1_2qs3i")
+tooltip = "Increases speed.
+Adds a 30% crit chance."
+effect = 1

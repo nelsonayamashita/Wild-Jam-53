@@ -1,0 +1,63 @@
+[gd_scene load_steps=16 format=3 uid="uid://2hm1sbjlm0o1"]
+
+[ext_resource type="Script" path="res://autoloads/sound_player.gd" id="1_p7gt8"]
+[ext_resource type="AudioStream" uid="uid://bffgtemls8fh7" path="res://assets/sfx/sell_randomizer.tres" id="2_rb602"]
+[ext_resource type="AudioStream" uid="uid://qn23le1rx8g4" path="res://assets/sfx/restore_randomizer.tres" id="3_ha8u4"]
+[ext_resource type="AudioStream" uid="uid://dlv4sspmwkjfg" path="res://assets/sfx/buy_randomizer.tres" id="4_rx2nd"]
+[ext_resource type="AudioStream" uid="uid://10uh5ul30ni4" path="res://assets/sfx/store_randomizer.tres" id="5_6qfds"]
+[ext_resource type="AudioStream" uid="uid://dhfta1u8yykf2" path="res://assets/sfx/sfx_alarm_loop3.wav" id="6_1dcy8"]
+[ext_resource type="AudioStream" uid="uid://nunhjy3hsa3s" path="res://assets/sfx/sfx_menu_select1.wav" id="7_vph1u"]
+[ext_resource type="AudioStream" uid="uid://2qqenfgx88b4" path="res://assets/sfx/melee/melee_randomizer.tres" id="8_knj4n"]
+[ext_resource type="AudioStream" uid="uid://dx6jcqcrbamgy" path="res://assets/sfx/sfx_deathscream_robot1.wav" id="9_5188b"]
+[ext_resource type="AudioStream" uid="uid://dvjm4j7cjdhiu" path="res://assets/sfx/sfx_sound_nagger2.wav" id="10_pund2"]
+[ext_resource type="AudioStream" uid="uid://bpanmufhyfdia" path="res://assets/sfx/sfx_alarm_loop5.wav" id="11_4wh5k"]
+[ext_resource type="AudioStream" uid="uid://c1bmehcb0na2v" path="res://assets/sfx/sfx_sounds_fanfare1.wav" id="12_4a5pw"]
+[ext_resource type="AudioStream" uid="uid://pidf6vwmya1s" path="res://assets/sfx/jingles_NES00.ogg" id="13_hprgi"]
+[ext_resource type="AudioStream" uid="uid://bjhbcdj4vyr5y" path="res://assets/sfx/Win Jingle.wav" id="14_2e84x"]
+[ext_resource type="AudioStream" uid="uid://udahkj6kx4cy" path="res://assets/sfx/sfx_menu_move4.wav" id="15_jy7a6"]
+
+[node name="SoundPlayer" type="Node"]
+script = ExtResource("1_p7gt8")
+
+[node name="SellSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rb602")
+
+[node name="RestoreSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ha8u4")
+
+[node name="BuySound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rx2nd")
+volume_db = -5.0
+
+[node name="StoreSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_6qfds")
+
+[node name="BattlePrepare" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1dcy8")
+
+[node name="BattleStart" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vph1u")
+
+[node name="MeleeSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_knj4n")
+
+[node name="RobotDeath" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_5188b")
+
+[node name="NegativeSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_pund2")
+
+[node name="LostSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4wh5k")
+
+[node name="WonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_4a5pw")
+
+[node name="LostMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_hprgi")
+
+[node name="WonMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_2e84x")
+
+[node name="ButtonSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_jy7a6")

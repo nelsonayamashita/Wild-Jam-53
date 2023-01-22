@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_oykar")
-attack = 8
+attack = 1
 id = -1
 level = 1
 image = ExtResource("1_jhgek")

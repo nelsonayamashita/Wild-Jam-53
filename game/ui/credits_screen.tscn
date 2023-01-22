@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxl8ebvudqi2d"]
+
+[ext_resource type="Theme" uid="uid://deqvgv4ausak" path="res://ui/autobots_theme.tres" id="1_4skpy"]
+[ext_resource type="Texture2D" uid="uid://cbi3n6gde7dy6" path="res://assets/ui/NinePatchRectv3.svg" id="2_ap4yh"]
+[ext_resource type="Script" path="res://ui/credits_screen.gd" id="2_kf40w"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_r8p1f"]
+color = Color(1, 1, 1, 1)
+grow_begin = -16.0
+grow_end = -16.0
+thickness = 4
+
+[node name="CreditsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_4skpy")
+script = ExtResource("2_kf40w")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_ap4yh")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_r8p1f")
+
+[node name="Credits" type="RichTextLabel" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[center]Game by Bored Paramecium
+Programming - Nelson
+Sprites & Icons - Castello
+Background Art - Sol
+Was there - Bruno
+SFX - Juhani Junkala
+Made with the [url=https://godotengine.org/license][color=468CBF]Godot Game Engine[/color][/url][/center]"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxLine_r8p1f")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+
+[node name="CloseButton" type="Button" parent="MarginContainer/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Return"
+
+[connection signal="meta_clicked" from="MarginContainer/MarginContainer/VBoxContainer/Credits" to="." method="_on_credits_meta_clicked"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/VBoxContainer/MarginContainer/CloseButton" to="." method="_on_close_button_pressed"]

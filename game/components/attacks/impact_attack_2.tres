@@ -1,13 +1,14 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bqf1t7t43or3x"]
 
-[ext_resource type="Texture2D" uid="uid://ewyrtdx504ei" path="res://assets/attack/impact_atk.svg" id="1_0niha"]
+[ext_resource type="Texture2D" uid="uid://dusv0chinhj0i" path="res://assets/attack/impact_atk_upgrade.svg" id="1_esiia"]
 [ext_resource type="Script" path="res://components/attacks/component_attack.gd" id="2_jdhat"]
 
 [resource]
 script = ExtResource("2_jdhat")
-attack = 15
+attack = 6
 id = 1
 level = 2
-image = ExtResource("1_0niha")
-effect = null
+image = ExtResource("1_esiia")
+tooltip = "Adds attack damage."
+effect = 0
 attack_type = 1

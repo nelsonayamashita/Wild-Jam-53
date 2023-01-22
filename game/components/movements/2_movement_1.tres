@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("2_qvhxr")
-speed = 10
+speed = 2
 id = 2
 level = 1
 image = ExtResource("1_kso5i")
-effect = null
+tooltip = "Adds a 5% evansion chance.
+Adds speed."
+effect = 2

@@ -18,7 +18,10 @@ extends Control
 @onready var stored_unit_2: MarginContainer = %StoredUnit2
 @onready var stored_unit_3: MarginContainer = %StoredUnit3
 
+@onready var money_icon: TextureRect = %MoneyIcon
 @onready var value_label: Label = %ValueLabel
+@onready var life_label: Label = %LifeLabel
+@onready var wins_label: Label = %WinsLabel
 
 
 func _ready() -> void:
@@ -29,7 +32,10 @@ func _ready() -> void:
 	shop_item_5.random_restore()
 	
 	GlobalData.money_changed.connect(_on_money_changed)
-	GlobalData.money = 10
+	GlobalData.money = 12
+	
+	life_label.text = str(GlobalData.lifes).pad_zeros(2)
+	wins_label.text = str(GlobalData.wins) + " / 7"
 	
 	if GlobalData.player_attack:
 		attack_battler.store(GlobalData.player_attack)
@@ -96,9 +102,9 @@ func _on_shop_item_1_unit_interacted(_unit: Resource) -> void:
 			stored_unit_3.clear()
 			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
-			print("can't")
+			SoundPlayer.negative_sound.play()
 	else:
-		print("can't")
+		SoundPlayer.negative_sound.play()
 
 
 func _on_shop_item_2_unit_interacted(_unit: Resource) -> void:
@@ -140,9 +146,9 @@ func _on_shop_item_2_unit_interacted(_unit: Resource) -> void:
 			stored_unit_3.clear()
 			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
-			print("can't")
+			SoundPlayer.negative_sound.play()
 	else:
-		print("can't")
+		SoundPlayer.negative_sound.play()
 
 
 func _on_shop_item_3_unit_interacted(_unit: Resource) -> void:
@@ -184,9 +190,9 @@ func _on_shop_item_3_unit_interacted(_unit: Resource) -> void:
 			stored_unit_3.clear()
 			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
-			print("can't")
+			SoundPlayer.negative_sound.play()
 	else:
-		print("can't")
+		SoundPlayer.negative_sound.play()
 
 
 func _on_shop_item_4_unit_interacted(_unit: Resource) -> void:
@@ -228,9 +234,9 @@ func _on_shop_item_4_unit_interacted(_unit: Resource) -> void:
 			stored_unit_3.clear()
 			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
-			print("can't")
+			SoundPlayer.negative_sound.play()
 	else:
-		print("can't")
+		SoundPlayer.negative_sound.play()
 
 
 func _on_shop_item_5_unit_interacted(_unit: Resource) -> void:
@@ -272,9 +278,9 @@ func _on_shop_item_5_unit_interacted(_unit: Resource) -> void:
 			stored_unit_3.clear()
 			player_battler.store(GlobalData.get_upgrade(_unit))
 		else:
-			print("can't")
+			SoundPlayer.negative_sound.play()
 	else:
-		print("can't")
+		SoundPlayer.negative_sound.play()
 
 
 func _on_rerol_button_pressed() -> void:
@@ -286,7 +292,7 @@ func _on_rerol_button_pressed() -> void:
 		shop_item_4.random_restore()
 		shop_item_5.random_restore()
 	else:
-		print("Can't")
+		SoundPlayer.negative_sound.play()
 
 #--Assembler--
 
@@ -403,7 +409,7 @@ func _on_stored_unit_3_equipped(unit)-> void:
 # ------
 
 func _on_money_changed(value: int) -> void:
-	value_label.text = str(value)
+	value_label.text = str(value).pad_zeros(2)
 
 
 func _on_start_button_pressed() -> void:

@@ -11,12 +11,14 @@ func buy() -> void:
 	price_container.hide()
 	unit.clear()
 	disabled = true
+	SoundPlayer.buy_sound.play()
 
 
 func random_restore() -> void:
 	disabled = false
 	price_container.show()
 	unit.random_fill()
+	SoundPlayer.restore_sound.play()
 
 
 func _on_pressed() -> void:

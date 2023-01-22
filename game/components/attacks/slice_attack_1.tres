@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("2_ljs5p")
-attack = 11
+attack = 2
 id = 2
 level = 1
 image = ExtResource("1_ok4jj")
-effect = null
+tooltip = "Adds attack damage."
+effect = 0
 attack_type = 0

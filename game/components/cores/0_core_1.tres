@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("2_y3la5")
-temperature_limit = 13
+temperature_limit = 2
 id = 0
 level = 1
 image = ExtResource("1_v1ukl")
-effect = null
+tooltip = "Has a very low cast cost, 
+but halves the special damage."
+effect = 3

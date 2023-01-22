@@ -1,13 +1,14 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://3d0l252firi5"]
 
-[ext_resource type="Texture2D" uid="uid://c3a5neb2tb873" path="res://assets/special/impact_spatk.svg" id="1_djxvi"]
+[ext_resource type="Texture2D" uid="uid://dskfuxsi2w685" path="res://assets/special/impact_spatk_upgrade.svg" id="1_fehh4"]
 [ext_resource type="Script" path="res://components/specials/component_special.gd" id="2_4qw8m"]
 
 [resource]
 script = ExtResource("2_4qw8m")
-special_damage = 18
+special_damage = 14
 id = 1
 level = 2
-image = ExtResource("1_djxvi")
-effect = null
+image = ExtResource("1_fehh4")
+tooltip = "Adds special damage."
+effect = 0
 attack_type = 1

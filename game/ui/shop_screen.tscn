@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cuboojl4mgje1"]
+[gd_scene load_steps=13 format=3 uid="uid://cuboojl4mgje1"]
 
 [ext_resource type="Theme" uid="uid://deqvgv4ausak" path="res://ui/autobots_theme.tres" id="1_adxkj"]
 [ext_resource type="Script" path="res://ui/shop_screen.gd" id="1_f2q0l"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://upmh5jdawt2e" path="res://assets/ui/NinePatchRectv2.svg" id="4_ptd08"]
 [ext_resource type="PackedScene" uid="uid://chb8ww3qi2njg" path="res://ui/rerol_button.tscn" id="5_i3suh"]
 [ext_resource type="Texture2D" uid="uid://6tqeeqspn8qq" path="res://assets/icons/din.svg" id="7_dxc2g"]
+[ext_resource type="Texture2D" uid="uid://yh71dr6lyyjh" path="res://assets/icons/heart.svg" id="11_xe1hk"]
+[ext_resource type="Texture2D" uid="uid://begceap1mack7" path="res://assets/icons/trophy.svg" id="12_bhqf7"]
 
 [node name="ShopScreen" type="Control"]
 layout_mode = 3
@@ -177,24 +179,26 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="MoneyUI" type="MarginContainer" parent="."]
+[node name="EconomyUI" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
+anchors_preset = -1
+anchor_left = 0.687
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
 grow_horizontal = 0
+
+[node name="MoneyUI" type="MarginContainer" parent="EconomyUI"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MoneyUI"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EconomyUI/MoneyUI"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="ValueLabel" type="Label" parent="MoneyUI/HBoxContainer"]
+[node name="ValueLabel" type="Label" parent="EconomyUI/MoneyUI/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 30
@@ -203,27 +207,75 @@ text = "99"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="MoneyIcon" type="TextureRect" parent="MoneyUI/HBoxContainer"]
+[node name="MoneyIcon" type="TextureRect" parent="EconomyUI/MoneyUI/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("7_dxc2g")
 expand_mode = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.7
-anchor_top = 0.533
-anchor_right = 1.0
-anchor_bottom = 0.711
-grow_horizontal = 0
-grow_vertical = 0
+[node name="LifeUI" type="MarginContainer" parent="EconomyUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EconomyUI/LifeUI"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LifeLabel" type="Label" parent="EconomyUI/LifeUI/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 64
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="LifeIcon" type="TextureRect" parent="EconomyUI/LifeUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("11_xe1hk")
+expand_mode = 3
+
+[node name="WinsUI" type="MarginContainer" parent="EconomyUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EconomyUI/WinsUI"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="WinsLabel" type="Label" parent="EconomyUI/WinsUI/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 64
+text = "0 / 7"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="WinsIcon" type="TextureRect" parent="EconomyUI/WinsUI/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("12_bhqf7")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="EconomyUI"]
+layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="StartButton" type="Button" parent="MarginContainer"]
+[node name="StartButton" type="Button" parent="EconomyUI/MarginContainer"]
 layout_mode = 2
 text = "Battle!"
 
@@ -241,6 +293,6 @@ text = "Battle!"
 [connection signal="unit_equipped" from="StorageMargin/VBoxContainer/MarginContainer/UnitStorage/StoredUnit1" to="." method="_on_stored_unit_1_equipped"]
 [connection signal="unit_equipped" from="StorageMargin/VBoxContainer/MarginContainer/UnitStorage/StoredUnit2" to="." method="_on_stored_unit_2_equipped"]
 [connection signal="unit_equipped" from="StorageMargin/VBoxContainer/MarginContainer/UnitStorage/StoredUnit3" to="." method="_on_stored_unit_3_equipped"]
-[connection signal="pressed" from="MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="EconomyUI/MarginContainer/StartButton" to="." method="_on_start_button_pressed"]
 
 [editable path="PlayerAssembler"]

@@ -1,12 +1,14 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://b7efpa532ct0"]
 
-[ext_resource type="Texture2D" uid="uid://bcftbca2mco4k" path="res://assets/core/2_core.svg" id="1_jfs56"]
+[ext_resource type="Texture2D" uid="uid://bpoxy1r38k733" path="res://assets/core/2_core_upgrade.svg" id="1_77pkt"]
 [ext_resource type="Script" path="res://components/cores/component_cores.gd" id="2_kmqsn"]
 
 [resource]
 script = ExtResource("2_kmqsn")
-temperature_limit = 9
+temperature_limit = 4
 id = 1
 level = 2
-image = ExtResource("1_jfs56")
-effect = null
+image = ExtResource("1_77pkt")
+tooltip = "Lowers special cast cost.
+Adds a 30% crit chance."
+effect = 1

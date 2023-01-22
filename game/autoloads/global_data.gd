@@ -36,14 +36,35 @@ var stored_component_1: Resource
 var stored_component_2: Resource
 var stored_component_3: Resource
 
-var money: int = 10 : set = _set_money
+var money: int = 12 : set = _set_money
+var lifes: int = 3
+var wins: int = 0
+var level: int = 0
 
 func _ready() -> void:
+	restart()
+
+
+func restart() -> void:
 	attack_pool = _create_pool(len(attack_components))
 	defence_pool = _create_pool(len(defence_components))
 	movement_pool = _create_pool(len(movement_components))
 	special_pool = _create_pool(len(special_components))
 	core_pool = _create_pool(len(core_components))
+	
+	stored_component_1 = null
+	stored_component_2 = null
+	stored_component_3 = null
+	
+	player_attack = null
+	player_defence = null
+	player_core = null
+	player_movement = null
+	player_special_attack = null
+	
+	lifes = 3
+	wins = 0
+	level = 0
 
 
 func get_upgrade(unit: Resource) -> Resource:

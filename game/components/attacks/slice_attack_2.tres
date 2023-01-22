@@ -1,13 +1,14 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://bq6qgus4q610d"]
 
-[ext_resource type="Texture2D" uid="uid://bxrsmhy1px525" path="res://assets/attack/slice_atk.svg" id="1_b165g"]
+[ext_resource type="Texture2D" uid="uid://cm0pnnue3eqef" path="res://assets/attack/slice_atk_upgrade.svg" id="1_o41yx"]
 [ext_resource type="Script" path="res://components/attacks/component_attack.gd" id="2_wipdo"]
 
 [resource]
 script = ExtResource("2_wipdo")
-attack = 14
+attack = 6
 id = 2
 level = 2
-image = ExtResource("1_b165g")
-effect = null
+image = ExtResource("1_o41yx")
+tooltip = "Adds attack damage."
+effect = 0
 attack_type = 0

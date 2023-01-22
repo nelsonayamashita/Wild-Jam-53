@@ -56,19 +56,22 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Robot Autobattler"
+config/name="Automachine Assembler"
+run/main_scene="res://ui/title_screen.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon_96.svg"
+config/icon="res://assets/attack/impact_atk.svg"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 
 GlobalData="*res://autoloads/global_data.tscn"
+SoundPlayer="*res://autoloads/sound_player.tscn"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [rendering]
 

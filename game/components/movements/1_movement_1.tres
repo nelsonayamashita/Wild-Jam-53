@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_3q2jv")
-speed = 12
+speed = 4
 id = 1
 level = 1
 image = ExtResource("1_3a35g")
-effect = null
+tooltip = "Increases speed."
+effect = 0

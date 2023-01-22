@@ -5,9 +5,10 @@
 
 [resource]
 script = ExtResource("2_05hmo")
-special_damage = 16
+special_damage = 5
 id = 0
 level = 1
 image = ExtResource("1_lb0nf")
-effect = null
+tooltip = "Adds special damage."
+effect = 0
 attack_type = 2

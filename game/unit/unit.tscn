@@ -25,6 +25,7 @@ offset_left = -48.0
 offset_top = -48.0
 offset_right = 48.0
 offset_bottom = 48.0
+pivot_offset = Vector2(48, 48)
 texture = ExtResource("1_5vash")
 stretch_mode = 2
 

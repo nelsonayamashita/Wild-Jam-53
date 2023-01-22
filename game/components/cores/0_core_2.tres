@@ -1,12 +1,14 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://dlgk834vomk20"]
 
-[ext_resource type="Texture2D" uid="uid://p716p31ups6j" path="res://assets/core/1_core.svg" id="1_5pm3u"]
+[ext_resource type="Texture2D" uid="uid://b3fotoikjqj22" path="res://assets/core/1_core_upgrade.svg" id="1_wfcke"]
 [ext_resource type="Script" path="res://components/cores/component_cores.gd" id="2_3ji8v"]
 
 [resource]
 script = ExtResource("2_3ji8v")
-temperature_limit = 11
+temperature_limit = 1
 id = 0
 level = 2
-image = ExtResource("1_5pm3u")
-effect = null
+image = ExtResource("1_wfcke")
+tooltip = "Has a very low cast cost, 
+but halves the special damage."
+effect = 3

@@ -5,8 +5,9 @@
 
 [resource]
 script = ExtResource("2_b5dpg")
-speed = 11
+speed = 1
 id = 0
 level = 1
 image = ExtResource("1_gj4h2")
-effect = null
+tooltip = "Adds a 20% crit chance."
+effect = 1

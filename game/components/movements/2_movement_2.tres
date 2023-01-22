@@ -1,12 +1,14 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://cbdniaoave7qw"]
 
-[ext_resource type="Texture2D" uid="uid://ckc1etkofqnri" path="res://assets/movement/wheel_movement.svg" id="1_oh6c5"]
+[ext_resource type="Texture2D" uid="uid://cvdcbfg31hw4j" path="res://assets/movement/wheel_movement_upgrade.svg" id="1_kw2fi"]
 [ext_resource type="Script" path="res://components/movements/component_movement.gd" id="2_gvh7d"]
 
 [resource]
 script = ExtResource("2_gvh7d")
-speed = 15
+speed = 6
 id = 2
 level = 2
-image = ExtResource("1_oh6c5")
-effect = null
+image = ExtResource("1_kw2fi")
+tooltip = "Adds a 15% evansion chance.
+Adds speed."
+effect = 2

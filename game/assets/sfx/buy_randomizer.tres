@@ -1,0 +1,8 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=2 format=3 uid="uid://dlv4sspmwkjfg"]
+
+[ext_resource type="AudioStream" uid="uid://cjl3pxvr264nf" path="res://assets/sfx/sfx_sounds_powerup10.wav" id="1_s5pko"]
+
+[resource]
+streams_count = 1
+stream_0/stream = ExtResource("1_s5pko")
+stream_0/weight = 1.0

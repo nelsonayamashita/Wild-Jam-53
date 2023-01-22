@@ -14,6 +14,7 @@ func _ready() -> void:
 func store(type: Resource) -> void:
 	interact_button.disabled = false
 	unit.fill(type)
+	SoundPlayer.store_sound.play()
 
 
 func clear() -> void:
@@ -48,6 +49,7 @@ func _on_sell_button_pressed() -> void:
 		GlobalData.money += 3
 	
 	_add_in_pool(unit.component, unit.component.id)
+	SoundPlayer.sell_sound.play()
 	unit.clear()
 	interact_button.disabled = true
 

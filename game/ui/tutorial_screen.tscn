@@ -1,0 +1,495 @@
+[gd_scene load_steps=17 format=3 uid="uid://ccnv0dw5vknqf"]
+
+[ext_resource type="Texture2D" uid="uid://dd4usiya01u0g" path="res://assets/backgrounds/deserto (night).png" id="1_eh1rk"]
+[ext_resource type="Texture2D" uid="uid://upmh5jdawt2e" path="res://assets/ui/NinePatchRectv2.svg" id="1_fa2wk"]
+[ext_resource type="Theme" uid="uid://deqvgv4ausak" path="res://ui/autobots_theme.tres" id="1_nbngy"]
+[ext_resource type="Script" path="res://ui/tutorial_screen.gd" id="1_x4psh"]
+[ext_resource type="Texture2D" uid="uid://cex0nn60jfml0" path="res://assets/icons/atk_64.svg" id="3_mqy2r"]
+[ext_resource type="Texture2D" uid="uid://lply020gh8x2" path="res://assets/icons/def_64.svg" id="4_b5wm4"]
+[ext_resource type="Texture2D" uid="uid://cm5ulvj12j5xt" path="res://assets/icons/sp-atk_64.svg" id="5_pse57"]
+[ext_resource type="Texture2D" uid="uid://baix8g2gmg5xd" path="res://assets/icons/spd_64.svg" id="6_wjgn7"]
+[ext_resource type="Texture2D" uid="uid://clo3su7u3c8yh" path="res://assets/icons/nuc_64.svg" id="7_t6qpx"]
+[ext_resource type="Texture2D" uid="uid://bpk1l6kg46wb3" path="res://assets/chart.png" id="9_80d7b"]
+[ext_resource type="Texture2D" uid="uid://cva3n3yb46lxl" path="res://assets/chart_weak.png" id="10_0103n"]
+[ext_resource type="Texture2D" uid="uid://ertj68pvuygq" path="res://assets/heads/impact_head.svg" id="11_8h58j"]
+[ext_resource type="Texture2D" uid="uid://cstutnhs003sy" path="res://assets/heads/impact_head_upgrade.svg" id="12_d2gom"]
+[ext_resource type="Texture2D" uid="uid://6tqeeqspn8qq" path="res://assets/icons/din.svg" id="13_frtwn"]
+[ext_resource type="Texture2D" uid="uid://begceap1mack7" path="res://assets/icons/trophy.svg" id="14_ykhid"]
+[ext_resource type="Texture2D" uid="uid://yh71dr6lyyjh" path="res://assets/icons/heart.svg" id="15_i8dqq"]
+
+[node name="TutorialScreen" type="CanvasLayer"]
+script = ExtResource("1_x4psh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eh1rk")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nbngy")
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="FirstScreen" type="NinePatchRect" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+texture = ExtResource("1_fa2wk")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/FirstScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/FirstScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tutorial"
+
+[node name="Text" type="Label" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "Assemble your Automachine before combat by buying components from the store and equipping them! There are 5 classes of components:"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Attack" type="HBoxContainer" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Attack"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_mqy2r")
+
+[node name="Label" type="Label" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Attack"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "Attack  -  Determines your base damage."
+
+[node name="Defence" type="HBoxContainer" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Defence"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_b5wm4")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Defence"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "Defence  -  Determines your HP."
+
+[node name="Special" type="HBoxContainer" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Special"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("5_pse57")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Special"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "Special Attack - Determines the damage of your special attack."
+
+[node name="Speed" type="HBoxContainer" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Speed"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("6_wjgn7")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Speed"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "Speed - Determines who attacks first. In a tie the first combatant is chosen randomly."
+
+[node name="Attack5" type="HBoxContainer" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Attack5"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("7_t6qpx")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/Attack5"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "Core - Determines the cost of temperature points needed for your special attack. 
+After a base attack you receive one temperature point."
+horizontal_alignment = 1
+
+[node name="NextButton" type="Button" parent="MarginContainer/FirstScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Next     "
+
+[node name="SecondScreen" type="NinePatchRect" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("1_fa2wk")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/SecondScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/SecondScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/SecondScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tutorial"
+
+[node name="Text" type="Label" parent="MarginContainer/SecondScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "Beside classes, Attack, Defence, and Special Attack components also have types. An attack is super effective if the defence type is weak to the attack type. This is the effectiveness chart:"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/SecondScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Effectivechart" type="TextureRect" parent="MarginContainer/SecondScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("9_80d7b")
+stretch_mode = 3
+
+[node name="Weakchart" type="TextureRect" parent="MarginContainer/SecondScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("10_0103n")
+stretch_mode = 3
+
+[node name="Text2" type="Label" parent="MarginContainer/SecondScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "The type of a component is shown as an icon similar to those in the chart above the component art."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/SecondScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PrevButton" type="Button" parent="MarginContainer/SecondScreen/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Previous"
+
+[node name="NextButton" type="Button" parent="MarginContainer/SecondScreen/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Next     "
+
+[node name="ThirdScreen" type="NinePatchRect" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("1_fa2wk")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ThirdScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ThirdScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tutorial"
+
+[node name="Text" type="Label" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "Upgrading your components is essential to ensure your success in the coliseum. You can upgrade a component by buying a 5th copy while holding the other 4 (3 stored and 1 equipped)."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_8h58j")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_8h58j")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_8h58j")
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_8h58j")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("11_8h58j")
+stretch_mode = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("12_d2gom")
+stretch_mode = 3
+
+[node name="Text2" type="Label" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "Upgraded components are much stronger, without them it's impossible to win!
+
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PrevButton" type="Button" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Previous"
+
+[node name="NextButton" type="Button" parent="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Next     "
+
+[node name="ForthScreen" type="NinePatchRect" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("1_fa2wk")
+patch_margin_left = 22
+patch_margin_top = 22
+patch_margin_right = 22
+patch_margin_bottom = 22
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ForthScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ForthScreen/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Tutorial"
+
+[node name="Text" type="Label" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "At the start of the buying phase, you always receive 12 coins. Your money from previous rounds is not carried over to the next one! Try to spend all your money on buying new components."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "12"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("13_frtwn")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="Text2" type="Label" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 32
+text = "You need 7 wins to conquer the coliseum and become the ultimate Automachine Assembler! After each fight you will face tougher opponents. If you lose more than 3 times, you are out!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "7/7"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("14_ykhid")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "= Win!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "-1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("15_i8dqq")
+expand_mode = 3
+stretch_mode = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "= Loss!"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PrevButton" type="Button" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Previous"
+
+[node name="StartButton" type="Button" parent="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "    Start     "
+
+[connection signal="pressed" from="MarginContainer/FirstScreen/MarginContainer/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/SecondScreen/MarginContainer/VBoxContainer/HBoxContainer2/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="MarginContainer/SecondScreen/MarginContainer/VBoxContainer/HBoxContainer2/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer2/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ThirdScreen/MarginContainer/VBoxContainer/HBoxContainer2/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer2/PrevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ForthScreen/MarginContainer/VBoxContainer/HBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]

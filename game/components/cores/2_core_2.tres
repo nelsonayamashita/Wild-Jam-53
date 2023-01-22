@@ -1,12 +1,13 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://dvefs1qutfegt"]
 
-[ext_resource type="Texture2D" uid="uid://dean3eggxkp8f" path="res://assets/core/3_core.svg" id="1_1o2te"]
+[ext_resource type="Texture2D" uid="uid://ovvemcs637cp" path="res://assets/core/3_core_upgrade.svg" id="1_dyx5c"]
 [ext_resource type="Script" path="res://components/cores/component_cores.gd" id="2_x3h1n"]
 
 [resource]
 script = ExtResource("2_x3h1n")
-temperature_limit = 10
+temperature_limit = 2
 id = 2
 level = 2
-image = ExtResource("1_1o2te")
-effect = null
+image = ExtResource("1_dyx5c")
+tooltip = "Lowers special cast cost."
+effect = 0
